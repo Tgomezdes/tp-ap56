@@ -1,0 +1,56 @@
+
+.formulario{
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-direction: column;
+    background-color: #001925;
+    padding: 50px;
+    border-radius: 10px;
+}
+.formulario div{
+   display: flex;
+   flex-direction: column;
+   color: aliceblue;
+
+   width: 80%;
+   gap: 20px;
+
+}
+.formulario div input{
+    font-size: 18px;
+}
+.formulario div input:focus{
+    outline: none;
+    
+}
+.enviar {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+
+    border-radius: 4px;
+    background-color:#ff7a01;
+    color: #fff;
+  }
+  
+  /* Estilos cuando el mouse está sobre el botón */
+ .enviar:hover {
+    color: #ff7a01;
+    background-color: #001925;
+
+  }
+  
+  /* Estilos cuando el botón está presionado */
+ .enviar:active {
+    background-color: #14568c;
+ 
+  }
+  
+  /* Estilos cuando el botón tiene el foco (seleccionado) */
+  .enviar:focus {
+    outline: none; /* Elimina el contorno predeterminado en algunos navegadores */
+    box-shadow: 0 0 0 2px #3498db; /* Añade un contorno personalizado cuando el botón tiene el foco */
+  }
