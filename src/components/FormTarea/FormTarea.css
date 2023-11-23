@@ -1,0 +1,25 @@
+.form__principal{
+
+
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.form__principal input{
+    border: none;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.form__principal input:focus{
+    outline: none;
+}
+.form__principal button{
+    border-radius: 10px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 15px;
+    background-color: azure;
+}

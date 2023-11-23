@@ -1,0 +1,41 @@
+.item {
+    margin: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .columns{
+    display: flex;
+    /* gap: 300px; */
+    margin-left: 20px;
+
+  }
+  .columns h2{
+    width: 33%;
+    text-align: start;
+
+
+  }
+.btns{
+    
+    width:80%;
+    display: flex;
+    justify-content: end;
+    /* background-color: aqua; */
+    gap:20px;
+}
+.btns input{
+    width: 100%;
+    /* background-color: antiquewhite; */
+}
+.todos__btns{
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+    width: 65%;
+    height: 40px;
+    /* background-color: azure; */
+}
+
