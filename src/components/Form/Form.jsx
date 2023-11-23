@@ -1,68 +1,70 @@
-import React, { useState } from 'react'
-import "./Form.css"
-export default function Form({producto,setProducto , cantidad,setCantidad,precio,setPrecio}) {
+import React, { useState } from 'react';
+import "./Form.css";
 
-    const handleInput = (event) => {
+export default function Form({products , setProducts , currentProduct , setCurrentProduct}) {
 
-        const { name, value } = event.target
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCurrentProduct((prevProduct) => ({
+            ...prevProduct,
+            [name]: value,
+        }));
+    };
 
-        switch (name) {
-            case "producto":
-                setProducto(value)
-                break;
-            case "cantidad":
-                setCantidad(value)
-                break;
-
-            case "precio":
-                setPrecio(value)
-                break;
-            default:
-                break;
-        }
-    }
-    const onSubmit = (e)=>{
-        e.preventDefault()
-        setProducto("")
-        setCantidad("")
-        setPrecio("")
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setProducts((prevProducts) => [...prevProducts, currentProduct]);
+        setCurrentProduct({
+            producto: '',
+            cantidad: '',
+            precio: '',
+        });
+    };
 
     return (
-        <div >
-            <form className='formulario' action="">
-
-                <div >
-                    <label htmlFor="producto" >Ingrese un producto</label>
+        <div>
+            <form className='formulario' onSubmit={handleSubmit}>
+                <section>
+                <div>
+                    <label htmlFor="producto">Ingrese un producto</label>
                     <input
-                        onChange={handleInput}
-                        value={producto}
+                        onChange={handleChange}
+                        value={currentProduct.producto}
                         type="text"
                         name='producto'
-                        id='producto' />
+                        id='producto'
+                        required
+                    />
                 </div>
                 <div>
-                    <label htmlFor="cantidad" >Ingrese la cantidad</label>
+                    <label htmlFor="cantidad">Ingrese la cantidad</label>
                     <input
-                        onChange={handleInput}
-                        value={cantidad}
+                        onChange={handleChange}
+                        value={currentProduct.cantidad}
                         type="number"
                         name='cantidad'
-                        id='cantidad' />
+                        id='cantidad'
+                        required
+                    />
                 </div>
                 <div>
-                    <label htmlFor="precio" >Ingrese el precio</label>
+                    <label htmlFor="precio">Ingrese el precio</label>
                     <input
-                        onChange={handleInput}
-                        value={precio}
+                        onChange={handleChange}
+                        value={currentProduct.precio}
                         type="number"
                         name='precio'
-                        id='precio' />
+                        id='precio'
+                        required
+                    />
                 </div>
-                <button className='enviar' onSubmit={onSubmit} >Agregar tarea</button>
+                </section>
+                <button className='enviar'>Agregar tarea</button>
             </form>
 
 
+
+         
         </div>
-    )
+    );
 }

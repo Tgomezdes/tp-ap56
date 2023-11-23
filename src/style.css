@@ -2,7 +2,10 @@
 
 .container{
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 50px;
+    height: 100vw;
     align-items: center;
     background-color:#ef850b;
     font-family: 'Roboto', sans-serif;

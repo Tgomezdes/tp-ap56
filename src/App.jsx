@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import Form from './components/Form/Form';
+import {Button} from "@mui/material"
+import TaskList from './components/TaskLIst/TaskList';
 import "./style.css"
 
+
 const App = () => {
-  const [producto, setProducto] = useState("")
-  const [cantidad, setCantidad] = useState("")
-  const [precio, setPrecio] = useState("")
-  
+  const [products, setProducts] = useState([]);
+  const [currentProduct, setCurrentProduct] = useState({
+      producto: '',
+      cantidad: '',
+      precio: '',
+  });
+
+
   return (
     <div className='container'>
-       <Form 
-       producto = {producto}
-       setProducto = {setProducto}
-       cantidad = {cantidad}
-       setCantidad = {setCantidad}
-       precio = {precio}
-       setPrecio = {setPrecio}
-        />
+      <Form 
+       products = {products}
+       setProducts = {setProducts}
+       currentProduct = {currentProduct}
+       setCurrentProduct = {setCurrentProduct}
+      />
+      <TaskList 
+      products = {products}    
+       
+      />
+    <Button></Button>
     </div>
   );
 };
