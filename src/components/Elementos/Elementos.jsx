@@ -1,24 +1,21 @@
 import "./Elementos.css"
-import React, { useState } from 'react';     //Importa React y useState desde 'react' para la gestión de estado.
-import { Button, Input, ListItem, ListItemText } from '@mui/material'; // También importa varios componentes de Material-UI 
-//(Button, Input, ListItem, ListItemText) para la interfaz de usuario.
+import React, { useState } from 'react';    
+import { Button, Input, ListItem, ListItemText } from '@mui/material'; 
 
 
-const Elemento = ({ Tarea, MarcarCompleto, Eliminar, modificar }) => {//Declara un componente funcional llamado Elemento, que toma 
-  //como propiedades (props) cuatro funciones: Tarea, MarcarCompleto, Eliminar, y modificar.
-  const [NuevoDato, setNuevoDato] = useState(Tarea.name);             //Declara un estado local NuevoDato utilizando el hook useState. Inicializa 
-  //su valor con el nombre de la tarea proporcionada (Tarea.name).    
+const Elemento = ({ Tarea, MarcarCompleto, Eliminar, modificar }) => {
+  const [NuevoDato, setNuevoDato] = useState(Tarea.name);           
 
 
-  //Define una función CambioEntrada que actualiza el estado
-  const CambioEntrada = (e) => {   // NuevoDato con el valor del evento de cambio (e.target.value), lo que refleja los cambios en el campo de entrada
+  
+  const CambioEntrada = (e) => {   
     setNuevoDato(e.target.value);
   };
 
-  const Modificarsalida = () => {    //Define una función Modificarsalida que llama a la función modificar pasándole el valor actualizado de NuevoDato
+  const Modificarsalida = () => {    
     modificar(NuevoDato);
   };
-  {/* */ }
+
   return (
 
     <>
@@ -29,12 +26,12 @@ const Elemento = ({ Tarea, MarcarCompleto, Eliminar, modificar }) => {//Declara 
       </div>
       <div className="item" >
         <ListItem className="listItem" >
-          <ListItemText //ListItemText: Es un componente de Material-UI que se utiliza para mostrar texto en un ítem de lista.
+          <ListItemText 
             primary={
               <span style={{
                 textDecoration: Tarea.completo ? 'line-through' : 'none',
                 fontWeight: Tarea.completo ? 'bold' : 'bold',
-                fontSize: Tarea.completo ? '20px' : '20px',// Se aplica bold si la tarea no está completa
+                fontSize: Tarea.completo ? '20px' : '20px',
               }}>
                 {Tarea.name}
               </span>
@@ -42,19 +39,17 @@ const Elemento = ({ Tarea, MarcarCompleto, Eliminar, modificar }) => {//Declara 
 
           />
           <div className="btns">
-            <Input type="text" value={NuevoDato} onChange={CambioEntrada} />{/*este código representa un campo de entrada de tipo texto  El valor del campo se actualiza dinámicamente a través del estado (NuevoDato),
-                                                                      y cualquier cambio en el contenido del campo ejecutará la función CambioEntrada, que actualiza el estado con el nuevo valor del campo. */}
-
+            <Input type="text" value={NuevoDato} onChange={CambioEntrada} />
             <div className="todos__btns">
-              <Button onClick={() => MarcarCompleto()} variant="contained" color="secondary"> {/*  se utiliza un onclick que al ser precionado el boton se llama la funcion MarcarComplto, se escribe asi porque nosotros queremos que el contenido que tiene guardado (this) sea ese y no modifique otro mas*/}
+              <Button onClick={() => MarcarCompleto()} variant="contained" color="secondary"> 
                 Marcar como Completada
               </Button>
 
-              <Button onClick={Modificarsalida} variant="contained" color="primary">{/*se utiliza un onclick que al ser precionado el boton se llama la funcion Modificarsalida, */}
+              <Button onClick={Modificarsalida} variant="contained" color="primary">
                 Modificar
               </Button>
 
-              <Button onClick={() => Eliminar()} variant="contained" color="error">{/*se utiliza un onclick que al ser precionado el boton se llama la funcion Eliminar, se escribe asi porque nosotros queremos que el contenido que tiene guardado (this) sea ese y no modifique otro mas */}
+              <Button onClick={() => Eliminar()} variant="contained" color="error">
                 Eliminar
               </Button>
             </div>
@@ -68,4 +63,4 @@ const Elemento = ({ Tarea, MarcarCompleto, Eliminar, modificar }) => {//Declara 
 
 };
 
-export default Elemento; // se exporta el los elementos 
+export default Elemento; 

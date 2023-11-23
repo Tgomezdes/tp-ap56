@@ -71,26 +71,21 @@ const App = () => {//Se utiliza el hook useState para definir cuatro estados loc
       completo: false, //completo es un booleano y empieza en falso
     };
 
-    setTareas((Tareaprevia) => [...Tareaprevia, NuevaTarea]); // se agrega NuevaTarea al array de Tareaprevia  
-    
-    mostrarMensaje(`Tarea  agregada con éxito.`, 'success');//utiliza la funcion mostrarMensaje pasandole el parameto "Tarea  agregada con éxito" y el tipo de color , en este caso success que seria verde
+    setTareas((Tareaprevia) => [...Tareaprevia, NuevaTarea]); 
+    mostrarMensaje(`Tarea  agregada con éxito.`, 'success');
   };
 
-  const mostrarMensaje = (mensaje, tipo = 'success') => { //mostrarMensaje tiene 2 parametros mensaje y tipo 
+  const mostrarMensaje = (mensaje, tipo = 'success') => { 
     setMensajeAlerta(mensaje); //setea el mensaje 
     setTipoAlerta(tipo); //setea el  tipo
     setMostrarAlerta(true); //setea  para mostrar  o no 
 
-    // Oculta la alerta después de 2000 milisegundos (2 segundos)
     setTimeout(() => {
       setMostrarAlerta(false);
     }, 2000);
   };
 
-  /*useEffect(() => {
-    console.log('La lista de tareas ha sido actualizada:', Tareas);
-  }, [Tareas]);*/
-   
+
   // Efecto para almacenar en localStorage cuando Tareas cambia
    useEffect(() => {
     localStorage.setItem('tareas', JSON.stringify(Tareas));
@@ -108,7 +103,7 @@ const App = () => {//Se utiliza el hook useState para definir cuatro estados loc
       />
       
         <Fade in={mostrarAlerta}>
-          <Alert variant="filled" severity={tipoAlerta}> {/* tipo de variante de filled  */}
+          <Alert variant="filled" severity={tipoAlerta}> 
             {mensajeAlerta}
           </Alert>
         </Fade>
