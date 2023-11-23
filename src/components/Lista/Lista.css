@@ -1,0 +1,14 @@
+.lista{
+    margin-top: 30px;
+    background-color: orange;
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    width: 90vw;
+}
+.ingresar{
+    font-size: 20px;
+    font-weight: bold;
+    color: aliceblue;
+
+}

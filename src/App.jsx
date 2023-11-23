@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import Lista from './components/Lista';// se trae la lista
-import FormTarea from './components/FormTarea'; // se trae los elementos del formulario de tareas
+import Lista from './components/Lista/Lista';// se trae la lista
+import FormTarea from './components/FormTarea/FormTarea'; // se trae los elementos del formulario de tareas
 import Alert from '@mui/material/Alert';// se utiliza para mostrar alertas
 import Fade from '@mui/material/Fade'; //fade aplica efecto de desaparecimiento
-
+import "./App.css"
 const App = () => {//Se utiliza el hook useState para definir cuatro estados locales (Tareas, mostrarAlerta, mensajeAlerta, y tipoAlerta).
   
   //const [Tareas, setTareas] = useState([]); // en este se guarda las tareas ya que es el array vacio
@@ -97,7 +97,7 @@ const App = () => {//Se utiliza el hook useState para definir cuatro estados loc
   }, [Tareas]);
 
   return (
-    <div>
+    <div className='principal'>
       <h1>Gestión de Tareas</h1>
       <FormTarea AgregarTarea={Agregar} />
       <Lista
